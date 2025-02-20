@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap');
+
+.Navbara {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "Exo 2", sans-serif;
+    padding: 10px 30px;
+    margin: auto;
+    border-bottom: 1px solid #ffcc0048;
+}
+
+/* SOL TARAF: Logo */
+.navLeft img {
+    max-height: 150px;
+}
+
+/* ORTA KISIM: Menü (Masaüstünde her zaman görünür) */
+.navCenter {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.navCenter ul {
+    display: flex;
+    list-style-type: none;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.navCenter ul li {
+    padding: 5px 10px;
+}
+
+.navCenter a {
+    color: white;
+    text-decoration: none;
+    position: relative; /* ::after için gerekli */
+    padding-bottom: 0.6rem;
+}
+
+/* Hover olduğunda alt çizginin ortadan başlaması için */
+.navCenter a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #FFCC00;
+    transition: width 0.3s ease-out, left 0.3s ease-out;
+}
+
+/* Hover olunca border soldan ve sağdan açılacak */
+.navCenter a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+/* SAĞ TARAF: Dil Seçici ve Çağrı Butonu */
+.navRight {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navRight a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: black;
+    background-color: #FFCC00;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.navRight a:hover {
+    color: #FFCC00;
+    background-color: black;
+}
+
+/* HAMBURGER MENÜ - Tablet ve Mobilde Göster */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* MOBİL MENÜ - BAŞLANGIÇTA GİZLİ */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    transition: right 0.3s ease-in-out;
+}
+
+/* MOBİL MENÜ AÇILDIĞINDA */
+.sidebar.open {
+    right: 0;
+}
+
+/* MOBİL MENÜDEKİ ÖĞELER */
+.mobileMenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.mobileMenu li {
+    padding: 15px;
+}
+
+.mobileMenu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.mobileMenu a:hover {
+    color: #FFCC00;
+}
+
+/* MOBİLDE DİL SEÇİCİ VE BUTON */
+.mobileLang, .mobileButton {
+    margin-top: 20px;
+}
+
+/* 📌 TABLET VE MOBİLDE NAVIGATION GİZLENECEK VE HAMBURGER GÖZÜKECEK */
+@media screen and (max-width: 1024px) {
+    .navCenter, .navRight {
+        display: none; /* Tablet ve Mobilde Nav'ı gizliyoruz */
+    }
+
+    .hamburger {
+        display: block; /* Tablet ve Mobilde hamburger menü göster */
+    }
+
+    .menu {
+        display: block;
+    }
+}
