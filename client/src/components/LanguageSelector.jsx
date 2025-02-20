@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+ import React, { useEffect } from "react";
 import tr from "../assets/tr.svg";
 import en from "../assets/en.svg";
 import classes from "./LanguageSelector.module.css";
