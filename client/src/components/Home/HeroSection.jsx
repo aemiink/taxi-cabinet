@@ -13,7 +13,7 @@ function HeroSection() {
                 <p>
                     İster günlük işleriniz için, ister özel bir yolculukta güvenli, konforlu ve hızlı ulaşım her zaman elinizin altında.
                 </p>
-                <a href="#rezervasyon" className={classes.callButton}>🚖 Taksi Çağır</a>
+                <a href="tel:+905468060929" className={classes.callButton}>🚖 Taksi Çağır</a>
                 <div className={classes.stats}>
                     <div>
                         <h3>1000+</h3>

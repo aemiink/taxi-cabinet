@@ -1,13 +1,17 @@
-import './App.css'
-import Navbar from './components/Navbar'
-import Home from './components/Home'
+import './App.css';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import { LanguageProvider } from './context/LanguageContext';
+
 function App() {
   return (
-    <div>
-      <Navbar/>
-      <Home/>
-    </div>
-  )
+    <LanguageProvider>
+      <Navbar />
+      <Home />
+      <Footer />
+    </LanguageProvider>
+  );
 }
 
-export default App
+export default App;

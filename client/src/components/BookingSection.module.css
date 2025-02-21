@@ -1,0 +1,99 @@
+.bookingContainer {
+    background-color: #ffcc00;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    border-radius: 20px;
+    max-width: 1200px;
+    margin: 80px auto 40px;
+    gap: 20px;
+  }
+  
+  .bookingContent {
+    flex: 1;
+  }
+  
+  .bookingTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .highlight {
+    color: black;
+    background-color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+  }
+  
+  .bookingDescription {
+    font-size: 1.2rem;
+    color: black;
+    margin-top: 10px;
+    max-width: 600px;
+  }
+  
+  .bookingButtons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .reserveButton,
+  .taxiButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .reserveButton {
+    background: black;
+    color: #ffcc00;
+  }
+  
+  .reserveButton:hover {
+    background: white;
+    color: black;
+  }
+  
+  .taxiButton {
+    background: white;
+    color: black;
+  }
+  
+  .taxiButton:hover {
+    background: black;
+    color: #ffcc00;
+  }
+  
+  .bookingImage img {
+    width: 200px;
+  }
+  
+  /* 📱 Mobil Uyumlu Hale Getirme */
+  @media (max-width: 768px) {
+    .bookingContainer {
+      flex-direction: column;
+      text-align: center;
+      padding: 30px;
+    }
+  
+    .bookingButtons {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .bookingImage img {
+      width: 150px;
+      margin-top: 20px;
+    }
+  }
+  

@@ -1,0 +1,150 @@
+.testimonialsSection {
+    background-color: #d9d9d9;
+    padding: 80px 10%;
+    text-align: center;
+    position: relative;
+  }
+  
+  .testimonialsSection::before {
+    content: "";
+    background: url("../../assets/road-pattern.svg") no-repeat center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    z-index: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .testimonialsTitle {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .highlight {
+    background-color: #ffcc00;
+    padding: 3px 8px;
+  }
+  
+  .testimonialsDescription {
+    font-size: 1.2rem;
+    color: #333;
+    max-width: 800px;
+    margin: 10px auto 30px;
+  }
+  
+  .testimonialsSlider {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  /* Animasyon Efektleri */
+  .fadeIn {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+  }
+  
+  .fadeOut {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+  
+  /* Mobil uyumluluk */
+  @media (max-width: 768px) {
+    .testimonialsSlider {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  .testimonialCard {
+    flex: 1;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 350px;
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Mobilde kart genişliğini tam yap */
+  @media (max-width: 768px) {
+    .testimonialCard {
+      max-width: 100%;
+    }
+  }
+  
+  /* Aktif olan kart büyüsün */
+  .testimonialCard:hover {
+    transform: scale(1.05);
+  }
+  
+  .yellowBg {
+    background: #ffcc00;
+    color: black;
+  }
+  
+  .blackBg {
+    background: black;
+    color: white;
+  }
+  
+  .testimonialQuote {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 15px;
+  }
+  
+  /* Mobilde yazıları küçült */
+  @media (max-width: 768px) {
+    .testimonialsTitle {
+      font-size: 2rem;
+    }
+    .testimonialsDescription {
+      font-size: 1rem;
+    }
+    .testimonialQuote {
+      font-size: 1rem;
+    }
+  }
+  
+  .author {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+  }
+  
+  /* Noktalar */
+  .dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    background-color: #333;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .activeDot {
+    background-color: #ffcc00;
+  }
+  

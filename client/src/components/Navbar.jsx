@@ -48,10 +48,9 @@ function Navbar() {
                     <li><a href="">{selectedLang === "TR" ? "Daha Fazlası ▼" : "More Than ▼"}</a></li>
                 </ul>
             </div>
-
             <div className={classes.navRight}>
                 <LanguageSelector selectedLang={selectedLang} setSelectedLang={setSelectedLang} />
-                <a href="" className={classes.callButton}>
+                <a href="tel:+905468060929" className={classes.callButton}>
                     <CallIcon />
                     {selectedLang === "TR" ? "Taksi Çağır" : "Call a Taxi"}
                 </a>
