@@ -1,34 +1,35 @@
- import React, { useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import tr from "../assets/tr.svg";
 import en from "../assets/en.svg";
 import classes from "./LanguageSelector.module.css";
+import LanguageContext from "../context/LanguageContext";
 
-const LanguageSelector = ({ selectedLang, setSelectedLang }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
+const LanguageSelector = () => {
+    const { language, changeLanguage } = useContext(LanguageContext);
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };
 
     const selectLanguage = (lang) => {
-        console.log("Selected Language:", lang); // Seçilen dili ekrana yazdıralım
-        setSelectedLang(lang);
-        localStorage.setItem("selectedLang", lang); // Kullanıcı seçimini kaydet
+        console.log("Seçilen Dil:", lang); // Konsola yazdır
+        changeLanguage(lang); // Backend'e isteği gönder
         setIsOpen(false);
     };
 
     return (
         <div className={classes.languageSelector}>
             <button className={classes.selectedLang} onClick={toggleDropdown}>
-                <img src={selectedLang === "TR" ? tr : en} alt="flag" className={classes.flagIcon} />
-                {selectedLang} <span className={classes.arrow}>{isOpen ? "▲" : "▼"}</span>
+                <img src={language === "tr" ? tr : en} alt="flag" className={classes.flagIcon} />
+                {language.toUpperCase()} <span className={classes.arrow}>{isOpen ? "▲" : "▼"}</span>
             </button>
             {isOpen && (
                 <div className={classes.dropdown}>
-                    <button onClick={() => selectLanguage("TR")} className={classes.dropdownItem}>
+                    <button onClick={() => selectLanguage("tr")} className={classes.dropdownItem}>
                         <img src={tr} alt="TR" className={classes.flagIcon} /> TR
                     </button>
-                    <button onClick={() => selectLanguage("EN")} className={classes.dropdownItem}>
+                    <button onClick={() => selectLanguage("en")} className={classes.dropdownItem}>
                         <img src={en} alt="EN" className={classes.flagIcon} /> EN
                     </button>
                 </div>

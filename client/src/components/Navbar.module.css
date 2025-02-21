@@ -3,19 +3,20 @@
 .Navbara {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     font-family: "Exo 2", sans-serif;
     padding: 10px 30px;
     margin: auto;
     border-bottom: 1px solid #ffcc0048;
+    background-color: #222;
 }
 
 /* SOL TARAF: Logo */
 .navLeft img {
-    max-height: 150px;
+    max-height: 100px;
 }
 
-/* ORTA KISIM: Menü (Masaüstünde her zaman görünür) */
+/* ORTA KISIM: Menü (Sadece masaüstü için) */
 .navCenter {
     flex: 1;
     display: flex;
@@ -37,11 +38,9 @@
 .navCenter a {
     color: white;
     text-decoration: none;
-    position: relative; /* ::after için gerekli */
     padding-bottom: 0.6rem;
 }
 
-/* Hover olduğunda alt çizginin ortadan başlaması için */
 .navCenter a::after {
     content: "";
     position: absolute;
@@ -53,12 +52,10 @@
     transition: width 0.3s ease-out, left 0.3s ease-out;
 }
 
-/* Hover olunca border soldan ve sağdan açılacak */
 .navCenter a:hover::after {
     width: 100%;
     left: 0;
 }
-
 
 /* SAĞ TARAF: Dil Seçici ve Çağrı Butonu */
 .navRight {
@@ -83,32 +80,33 @@
     background-color: black;
 }
 
-/* HAMBURGER MENÜ - Tablet ve Mobilde Göster */
+/* 🍔 HAMBURGER MENÜ - Sadece mobilde gösterilecek */
 .hamburger {
     display: none;
     background: none;
     border: none;
     color: white;
-    font-size: 24px;
+    font-size: 32px;
     cursor: pointer;
 }
 
-/* MOBİL MENÜ - BAŞLANGIÇTA GİZLİ */
+/* 📱 MOBİL MENÜ */
 .sidebar {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 250px;
-    height: 100%;
+    width: 280px;
+    height: 100vh;
     background: #222;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 50px;
     transition: right 0.3s ease-in-out;
+    z-index: 100;
 }
 
-/* MOBİL MENÜ AÇILDIĞINDA */
+/* Menü Açıldığında */
 .sidebar.open {
     right: 0;
 }
@@ -136,12 +134,12 @@
     color: #FFCC00;
 }
 
-/* MOBİLDE DİL SEÇİCİ VE BUTON */
+/* 📌 MOBİLDE DİL SEÇİCİ VE BUTON */
 .mobileLang, .mobileButton {
     margin-top: 20px;
 }
 
-/* 📌 TABLET VE MOBİLDE NAVIGATION GİZLENECEK VE HAMBURGER GÖZÜKECEK */
+/* 🚀 SADECE MOBİLDE GÖSTERİLECEKLER */
 @media screen and (max-width: 1024px) {
     .navCenter, .navRight {
         display: none; /* Tablet ve Mobilde Nav'ı gizliyoruz */
@@ -151,7 +149,14 @@
         display: block; /* Tablet ve Mobilde hamburger menü göster */
     }
 
-    .menu {
-        display: block;
+    .sidebar {
+        display: flex;
+    }
+}
+
+/* 🚀 DESKTOPTA MOBİL MENÜYÜ TAMAMEN GİZLE */
+@media screen and (min-width: 1025px) {
+    .sidebar {
+        display: none !important; /* Desktopta sidebar hiç görünmeyecek */
     }
 }

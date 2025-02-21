@@ -1,31 +1,52 @@
-import React from "react";
+import React, { useContext } from "react";
 import classes from "./HeroSection.module.css";
 import heroImage from "../../assets/taxi-driver.svg"; // Arka plan görseli
+import LanguageContext from "../../context/LanguageContext";
 
 function HeroSection() {
+    const { language } = useContext(LanguageContext);
+
+    // Dil çevirileri
+    const translations = {
+        tr: {
+            title: "Birlikte, Harika ve güvenilir yolculuklar yapmak",
+            highlight: "istemez misiniz?",
+            description: "İster günlük işleriniz için, ister özel bir yolculukta güvenli, konforlu ve hızlı ulaşım her zaman elinizin altında.",
+            callTaxi: "🚖 Taksi Çağır",
+            stats: ["Müşteriler", "Araçlar", "Şoförler"]
+        },
+        en: {
+            title: "Would you like to have amazing and safe trips",
+            highlight: "together?",
+            description: "Whether for your daily tasks or a special journey, safe, comfortable, and fast transportation is always at your fingertips.",
+            callTaxi: "🚖 Call a Taxi",
+            stats: ["Customers", "Vehicles", "Drivers"]
+        }
+    };
+
+    const t = translations[language] || translations["tr"]; // Varsayılan TR
+
     return (
         <section className={classes.hero}>
             <div className={classes.heroContent}>
                 <h1>
-                    Birlikte, Harika ve güvenilir yolculuklar yapmak <br />
-                    <span className={classes.highlight}>istemez misiniz?</span>
+                    {t.title} <br />
+                    <span className={classes.highlight}>{t.highlight}</span>
                 </h1>
-                <p>
-                    İster günlük işleriniz için, ister özel bir yolculukta güvenli, konforlu ve hızlı ulaşım her zaman elinizin altında.
-                </p>
-                <a href="tel:+905468060929" className={classes.callButton}>🚖 Taksi Çağır</a>
+                <p>{t.description}</p>
+                <a href="tel:+905468060929" className={classes.callButton}>{t.callTaxi}</a>
                 <div className={classes.stats}>
                     <div>
                         <h3>1000+</h3>
-                        <p>Müşteriler</p>
+                        <p>{t.stats[0]}</p>
                     </div>
                     <div>
                         <h3>4+</h3>
-                        <p>Araçlar</p>
+                        <p>{t.stats[1]}</p>
                     </div>
                     <div>
                         <h3>5+</h3>
-                        <p>Şoförler</p>
+                        <p>{t.stats[2]}</p>
                     </div>
                 </div>
             </div>

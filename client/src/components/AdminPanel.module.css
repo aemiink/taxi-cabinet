@@ -1,0 +1,31 @@
+.adminContainer {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFCC00;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #FFCC00;
+    text-align: center;
+}
+
+th {
+    background-color: #FFCC00;
+    color: black;
+}
