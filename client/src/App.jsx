@@ -6,12 +6,12 @@ import Taxis from "./components/Serivces";
 import Footer from "./components/Footer";
 import { LanguageProvider } from "./context/LanguageContext";
 import AdminLogin from "./components/AdminLogin";
-import AdminPanel from "./components/AdminPanel"; // 📌 Klasör yolunu düzelttik!
-import AdminReservations from "./components/Admin/AdminReservation"; // 📌 Admin içinden doğru çağırdık
-import AdminDrivers from "./components/Admin/AdminDrivers"; // 📌 Yol düzeltildi
-import AdminCars from "./components/Admin/AdminCars"; // 📌 Yol düzeltildi
+import AdminPanel from "./components/AdminPanel"; 
+import AdminReservations from "./components/Admin/AdminReservation"; 
+import AdminDrivers from "./components/Admin/AdminDrivers"; 
+import AdminCars from "./components/Admin/AdminCars"; 
 
-import AdminSettings from "./components/Admin/AdminSettings"; // 📌 Yol düzeltildi
+import AdminSettings from "./components/Admin/AdminSettings"; 
 import Home from "./components/Home";
 import Reservation from "./components/Reservation";
 
@@ -48,13 +48,12 @@ function App() {
         <Route path="/reservation" element={<Reservation />} />
         <Route path="/admin" element={<AdminLogin setIsAuthenticated={setIsAuthenticated} />} />
 
-        {/* 📌 ADMIN PANELİ ROUTE'LARI */}
         {isAuthenticated ? (
           <Route path="/admin/dashboard/*" element={<AdminPanel />}>
             <Route index element={<AdminReservations />} />
             <Route path="reservations" element={<AdminReservations />} />
             <Route path="drivers" element={<AdminDrivers />} />
-            <Route path="cars" element={<AdminCars />} />  {/* 📌 Araç Yönetimi */}
+            <Route path="cars" element={<AdminCars />} />  
             <Route path="settings" element={<AdminSettings />} />
           </Route> 
         ) : (
