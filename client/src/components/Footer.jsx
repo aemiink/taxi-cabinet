@@ -63,7 +63,6 @@ function Footer() {
 
 
           <div className={classes.footerRight}>
-            {/* 📞 Taksi Çağır Butonu */}
             <a href="tel:+905551112233" className={classes.taxiButton}>
               🚖 {t.taxiCall}
             </a>
