@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25rem;
+    background-color: #1e1e1e; /* Koyu tema */
+    font-family: "Exo 2", sans-serif;
+}
+
+.loginContainer h2 {
+    color: #FFF;
+}
+
+.loginBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #2a2a2a; /* Koyu gri arka plan */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 350px;
+    max-width: 100%;
+}
+
+.loginBox input {
+    color: #FFF;
+    margin-bottom: 20px;
+    font-weight: 400;
+    width: 100%;
+    font-size: 18px;
+    font-family: "Exo 2", sans-serif;
+
+}
+
+.loginBox button {
+    color: #000;
+    background-color: #FFCC00;
+    margin-bottom: 20px;
+    font-weight: 600;
+    width: 100%;
+    font-size: 18px;
+    font-family: "Exo 2", sans-serif;
+
+}
+
+
+/* 🔥 Mobil Uyumlu Tasarım */
+@media (max-width: 400px) {
+    .loginBox {
+        width: 90%;
+        padding: 20px;
+    }
+}

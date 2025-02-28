@@ -1,0 +1,55 @@
+.container {
+    padding: 20px;
+    border: 2px solid #FFCA00;
+    border-radius: 8px;
+}
+
+h2 {
+    color: #333;
+}
+
+.addCarForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.addCarForm input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.addCarForm button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.addCarForm button:hover {
+    background-color: #218838;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background-color: #000000;
+    color: white;
+}
+
+td img {
+    border-radius: 4px;
+}

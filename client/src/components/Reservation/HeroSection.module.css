@@ -1,0 +1,51 @@
+.heroSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 3rem 10%;
+    background-color: #222;
+    color: white;
+    gap: 75px;
+}
+
+.heroContent {
+    max-width: 50%;
+}
+
+.heroContent h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 3.5rem;
+}
+
+.highlight {
+    color: #000;
+    background-color: #FFCC00;
+}
+
+.heroContent p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #fff;
+}
+
+.callTaxiButton {
+    background-color: #FFCC00;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.callTaxiButton:hover {
+    background-color: black;
+    color: #FFCC00;
+}
+
+.heroImage img {
+    max-width: 100%;
+    height: auto;
+}

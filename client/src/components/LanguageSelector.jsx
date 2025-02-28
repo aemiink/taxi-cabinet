@@ -13,8 +13,8 @@ const LanguageSelector = () => {
     };
 
     const selectLanguage = (lang) => {
-        console.log("Seçilen Dil:", lang); // Konsola yazdır
-        changeLanguage(lang); // Backend'e isteği gönder
+        console.log("Seçilen Dil:", lang); 
+        changeLanguage(lang); 
         setIsOpen(false);
     };
 

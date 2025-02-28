@@ -34,8 +34,8 @@ function Testimonials() {
           prevIndex === testimonials.length - 3 ? 0 : prevIndex + 1
         );
         setFade(true);
-      }, 300); // 300ms içinde fade out, sonra yeni slayt
-    }, 5000); // 5 saniyede bir değişim
+      }, 300); 
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [testimonials]);

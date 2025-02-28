@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap');
+
+
+.reservationSection {
+  background-color: #111;
+  padding: 3rem 6rem;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Exo 2", sans-serif;
+}
+
+/* ⭐ Başlık ve Alt Başlık */
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.sectionTitle span {
+  color: #000;
+  background: #FFCC00;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.sectionSubtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* 🟡 Form ve Görsel Kutusu */
+.reservationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+  background-color: #222;
+  padding: 40px;
+  border-radius: 10px;
+  border: 2px solid #FFCC00;
+}
+
+/* 📝 Form Alanı */
+.reservationForm {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: left;
+
+}
+
+.inputGroup label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 5px;
+  border: #FFCC00;
+  font-size: 1rem;
+  outline: none;
+  font-family: "Exo 2", sans-serif;
+}
+
+/* 📞 Telefon Numarası Kutusu */
+.phoneInput {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.phoneInput span {
+  background: #FFCC00;
+  color: black;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+
+/* 🟡 Buton */
+.reservationForm button {
+  background-color: #FFCC00;
+  color: black;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.reservationForm button:hover {
+  background-color: black;
+  color: #FFCC00;
+}
+
+/* 🖼️ Görsel Alanı */
+.reservationImage {
+  flex: 1;
+  text-align: right;
+}
+
+.reservationImage img {
+  max-width: 100%;
+  border-radius: 10px;
+  border: 3px solid #FFCC00;
+}
+
+/* 📌 📱 MOBİL UYUMLULUK */
+@media (max-width: 1024px) {
+  .reservationContainer {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+  }
+
+  .reservationForm {
+      max-width: 100%;
+  }
+
+  .inputGroup {
+      width: 100%;
+  }
+
+  .reservationImage {
+      text-align: center;
+      margin-top: 20px;
+  }
+
+  .reservationImage img {
+      width: 80%;
+  }
+
+  .sectionTitle {
+      font-size: 2rem;
+  }
+
+  .sectionSubtitle {
+      font-size: 1rem;
+  }
+
+  .phoneInput span {
+      padding: 6px 8px;
+  }
+
+  .reservationForm button {
+      width: 100%;
+  }
+}

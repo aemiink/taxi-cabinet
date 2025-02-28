@@ -9,6 +9,7 @@
     margin: auto;
     border-bottom: 1px solid #ffcc0048;
     background-color: #222;
+
 }
 
 /* SOL TARAF: Logo */
@@ -33,6 +34,7 @@
 
 .navCenter ul li {
     padding: 5px 10px;
+    cursor: pointer;
 }
 
 .navCenter a {
@@ -137,6 +139,11 @@
 /* 📌 MOBİLDE DİL SEÇİCİ VE BUTON */
 .mobileLang, .mobileButton {
     margin-top: 20px;
+}
+
+.logoutButton{
+    display: flex;
+    text-align: center;
 }
 
 /* 🚀 SADECE MOBİLDE GÖSTERİLECEKLER */

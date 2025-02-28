@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import classes from "./HeroSection.module.css";
-import heroImage from "../../assets/taxi-driver.svg"; // Arka plan görseli
+import heroImage from "../../assets/taxi-driver.svg"; 
 import LanguageContext from "../../context/LanguageContext";
 
 function HeroSection() {
     const { language } = useContext(LanguageContext);
 
-    // Dil çevirileri
     const translations = {
         tr: {
             title: "Birlikte, Harika ve güvenilir yolculuklar yapmak",

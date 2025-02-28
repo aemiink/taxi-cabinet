@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import classes from "./PlanYourTrip.module.css";
-import tripImage from "../../assets/trip-image.svg"; // Görsel yolunu kontrol et
+import tripImage from "../../assets/trip-image.svg"; 
 import LanguageContext from "../../context/LanguageContext";
 
 function PlanYourTrip() {
   const { language } = useContext(LanguageContext);
 
-  // Dil çevirileri
+
   const translations = {
     tr: {
       sectionTag: "RANDEVU",
@@ -34,7 +34,7 @@ function PlanYourTrip() {
     },
   };
 
-  const t = translations[language] || translations["tr"]; // Varsayılan TR
+  const t = translations[language] || translations["tr"]; 
 
   return (
     <section className={classes.planSection}>

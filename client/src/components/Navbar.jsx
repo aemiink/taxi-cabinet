@@ -1,26 +1,92 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom"; // 📌 useLocation eklendi
 import classes from "./Navbar.module.css";
 import logo from "../assets/taksilogo.svg";
 import LanguageSelector from "./LanguageSelector";
 import CallIcon from "@mui/icons-material/Call";
-import CloseIcon from "@mui/icons-material/Close"; 
-import MenuIcon from "@mui/icons-material/Menu"; // ☰ Hamburger ikonu
+import ExitToAppIcon from "@mui/icons-material/ExitToApp"; 
+import MenuIcon from "@mui/icons-material/Menu"; 
+import CloseIcon from "@mui/icons-material/Close";
 import LanguageContext from "../context/LanguageContext";
 
 function Navbar() {
     const { language } = useContext(LanguageContext);
-    const [menuOpen, setMenuOpen] = useState(false); 
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation(); 
+
+    useEffect(() => {
+        checkAuth();
+    }, []);
+
+    const checkAuth = async () => {
+        try {
+            const response = await fetch("http://localhost:5000/auth/admin", {
+                method: "GET",
+                credentials: "include",
+            });
+
+            if (response.ok) {
+                setIsAuthenticated(true);
+            } else {
+                setIsAuthenticated(false);
+            }
+        } catch (error) {
+            console.error("❌ Auth kontrol hatası:", error);
+            setIsAuthenticated(false);
+        }
+    };
+
+    const handleLogout = async () => {
+        try {
+            await fetch("http://localhost:5000/auth/logout", {
+                method: "POST",
+                credentials: "include",
+            });
+
+            setIsAuthenticated(false);
+            navigate("/"); 
+        } catch (error) {
+            console.error("Çıkış hatası:", error);
+        }
+    };
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
     const translations = {
-        tr: { home: "Anasayfa", taxis: "Taksilerimiz", services: "Hizmetlerimiz", more: "Daha Fazlası", callTaxi: "Taksi Çağır" },
-        en: { home: "Home", taxis: "Our Taxis", services: "Our Services", more: "More", callTaxi: "Call Taxi" },
+        tr: { 
+            home: "Anasayfa", 
+            taxis: "Taksilerimiz", 
+            services: "Hizmetlerimiz", 
+            more: "Rezervasyon", 
+            callTaxi: "Taksi Çağır", 
+            logout: "Çıkış Yap",
+            adminReservations: "Rezervasyon Yönetimi",
+            adminDrivers: "Şoför Yönetimi",
+            adminCars: "Araç Yönetimi",
+            adminSettings: "Ayarlar"
+        },
+        en: { 
+            home: "Home", 
+            taxis: "Our Taxis", 
+            services: "Our Services", 
+            more: "Reservation", 
+            callTaxi: "Call Taxi", 
+            logout: "Logout",
+            adminReservations: "Reservation Management",
+            adminDrivers: "Driver Management",
+            adminCars: "Cars Management",
+            adminSettings: "Settings"
+        }
     };
 
     const t = translations[language] || translations["tr"];
+
+
+    const isAdminPage = location.pathname.startsWith("/admin/dashboard");
 
     return (
         <nav className={classes.Navbara}>
@@ -30,43 +96,77 @@ function Navbar() {
 
             <div className={classes.navCenter}>
                 <ul>
-                    <li><a href="#">{t.home}</a></li>
-                    <li><a href="#">{t.taxis}</a></li>
-                    <li><a href="#">{t.services}</a></li>
-                    <li><a href="#">{t.more} ▼</a></li>
+                    {isAdminPage ? (
+                        <>
+                            <li><a onClick={() => navigate("/admin/dashboard/reservations")}>{t.adminReservations}</a></li>
+                            <li><a onClick={() => navigate("/admin/dashboard/drivers")}>{t.adminDrivers}</a></li>
+                            <li><a onClick={() => navigate("/admin/dashboard/cars")}>{t.adminCars}</a></li>
+                            <li><a onClick={() => navigate("/admin/dashboard/settings")}>{t.adminSettings}</a></li>
+                        </>
+                    ) : (
+                        <>
+                            <li><a onClick={() => navigate("/")}>{t.home}</a></li>
+                            <li><a onClick={() => navigate("/taxis")}>{t.taxis}</a></li>
+                            <li><a onClick={() => navigate("/#services")}>{t.services}</a></li>
+                            <li><a onClick={() => navigate("/reservation")}>{t.more} ▼</a></li>
+                        </>
+                    )}
                 </ul>
             </div>
 
             <div className={classes.navRight}>
                 <LanguageSelector />
-                <a href="tel:+905551112233" className={classes.callButton}>
-                    <CallIcon />
-                    {t.callTaxi}
-                </a>
+
+
+                {isAdminPage && isAuthenticated ? (
+                    <button onClick={handleLogout} className={classes.logoutButton}>
+                        <ExitToAppIcon /> {t.logout}
+                    </button>
+                ) : (
+                    <a href="tel:+905551112233" className={classes.callButton}>
+                        <CallIcon />
+                        {t.callTaxi}
+                    </a>
+                )}
             </div>
 
-            {/* 🍔 Mobilde Hamburger Menü Butonu */}
             <button className={classes.hamburger} onClick={toggleMenu}>
                 <MenuIcon />
             </button>
 
-            {/* 📱 Mobil Menü */}
+
             <div className={`${classes.sidebar} ${menuOpen ? classes.open : ""}`}>
                 <button className={classes.closeButton} onClick={toggleMenu}>
                     <CloseIcon />
                 </button>
                 <ul className={classes.mobileMenu}>
-                    <li><a href="#">{t.home}</a></li>
-                    <li><a href="#">{t.taxis}</a></li>
-                    <li><a href="#">{t.services}</a></li>
-                    <li><a href="#">{t.more} ▼</a></li>
+                    {isAdminPage ? (
+                        <>
+                            <li><a onClick={() => navigate("/admin/dashboard/reservations")}>{t.adminReservations}</a></li>
+                            <li><a onClick={() => navigate("/admin/dashboard/drivers")}>{t.adminDrivers}</a></li>
+                            <li><a onClick={() => navigate("/admin/dashboard/settings")}>{t.adminSettings}</a></li>
+                        </>
+                    ) : (
+                        <>
+                            <li><a onClick={() => navigate("/")}>{t.home}</a></li>
+                            <li><a onClick={() => navigate("/taxis")}>{t.taxis}</a></li>
+                            <li><a onClick={() => navigate("#services")}>{t.services}</a></li>
+                            <li><a onClick={() => navigate("/reservation")}>{t.more} ▼</a></li>
+                        </>
+                    )}
                     <li className={classes.mobileLang}>
                         <LanguageSelector />
                     </li>
                     <li className={classes.mobileButton}>
-                        <a href="tel:+905551112233" className={classes.callButton}>
-                            <CallIcon /> {t.callTaxi}
-                        </a>
+                        {isAdminPage && isAuthenticated ? (
+                            <button onClick={handleLogout} className={classes.logoutButton}>
+                                <ExitToAppIcon /> {t.logout}
+                            </button>
+                        ) : (
+                            <a href="tel:+905551112233" className={classes.callButton}>
+                                <CallIcon /> {t.callTaxi}
+                            </a>
+                        )}
                     </li>
                 </ul>
             </div>

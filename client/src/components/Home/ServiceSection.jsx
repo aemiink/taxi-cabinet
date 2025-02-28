@@ -70,10 +70,10 @@ function ServicesSection() {
     },
   };
 
-  const t = translations[language] || translations["tr"]; // Varsayılan TR
+  const t = translations[language] || translations["tr"]; 
 
   return (
-    <section className={classes.servicesSection}>
+    <section id="services" className={classes.servicesSection}>
       <div className={classes.container}>
         <span className={classes.sectionTag}>{t.sectionTag}</span>
         <h2>

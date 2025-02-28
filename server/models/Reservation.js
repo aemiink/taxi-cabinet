@@ -12,4 +12,7 @@ const ReservationSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model("Reservation", ReservationSchema);
+
+const Reservation = mongoose.models.Reservation || mongoose.model("Reservation", ReservationSchema);
+
+module.exports = Reservation;

@@ -1,109 +1,150 @@
 .servicesSection {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #222;
-    color: #fff;
-    padding: 80px 10%;
-    text-align: center;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .sectionTag {
-    background: #666;
-    color: white;
-    padding: 5px 15px;
-    font-size: 0.9rem;
-    border-radius: 15px;
-    text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 10px;
-  }
-  
-  .container h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color:white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  color: #fff;
+  padding: 80px 10%;
+  text-align: center;
+}
 
-  }
-  
-  .highlight {
-    background-color: #ffcc00;
-    color: black;
-    padding: 3px 8px;
-  }
-  
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTag {
+  background: #666;
+  color: white;
+  padding: 5px 15px;
+  font-size: 0.9rem;
+  border-radius: 15px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.container h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.highlight {
+  background-color: #ffcc00;
+  color: black;
+  padding: 3px 8px;
+}
+
+/* 📌 Servis Kartlarının Grid Düzeni */
+.servicesGrid {
+  display: flex;
+  gap: 30px;
+  margin-top: 40px;
+  justify-content: center;
+}
+
+/* 📌 Servis Kartları */
+.serviceCard {
+  background: #d9d9d9;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.serviceCard:hover {
+  transform: scale(1.05);
+}
+
+.serviceCard img {
+  max-width: 100%;
+  height: auto;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #000;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 1rem;
+  color: #333;
+  margin: 10px 0 20px;
+}
+
+/* 📌 Buton Stilleri */
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.taxiButton, .reserveButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.taxiButton {
+  background: #ffcc00;
+  color: black;
+}
+
+.taxiButton:hover {
+  background: black;
+  color: #ffcc00;
+}
+
+.reserveButton {
+  background: black;
+  color: #ffcc00;
+}
+
+.reserveButton:hover {
+  background: #ffcc00;
+  color: black;
+}
+
+/* 📌 RESPONSIVE DÜZENLEMELER */
+@media (max-width: 1024px) {
   .servicesGrid {
-    display: flex;
-    gap: 30px;
-    margin-top: 40px;
-    justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
-  
+}
+
+@media (max-width: 768px) {
+  .servicesSection {
+      padding: 50px 5%;
+  }
+
+  .container h2 {
+      font-size: 2rem;
+  }
+
+  .servicesGrid {
+      flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .container h2 {
+      font-size: 1.8rem;
+  }
+
   .serviceCard {
-    background: #d9d9d9;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    flex: 1;
-    max-width: 350px;
+      padding: 15px;
   }
-  
-  .serviceCard img {
-    max-width: 100%;
-    height: auto;
+
+  .taxiButton, .reserveButton {
+      font-size: 0.9rem;
+      padding: 8px 15px;
   }
-  
-  h3 {
-    font-size: 1.5rem;
-    color: #000;
-    margin: 10px 0;
-  }
-  
-  p {
-    font-size: 1rem;
-    color: #333;
-    margin: 10px 0 20px;
-  }
-  
-  .taxiButton {
-    background: #ffcc00;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .taxiButton:hover {
-    background: black;
-    color: #ffcc00;
-  }
-  
-  .buttonGroup {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-  }
-  
-  .reserveButton {
-    background: black;
-    color: #ffcc00;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-  
-  .reserveButton:hover {
-    background: #ffcc00;
-    color: black;
-  }
-  
-  
+}

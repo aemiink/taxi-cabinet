@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+.driversSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #111;
+    padding: 50px 20px;
+    font-family: "Exo 2", sans-serif;
+}
+
+.sectionTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.sectionTitle span {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    background-color: #FFD700;
+    padding: 0.5rem;
+}
+
+.sectionSubtitle {
+    color: #bbb;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.driversContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.driverCard {
+    position: relative;
+    width: 250px;
+    height: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid #FFD700;
+    transition: transform 0.3s ease-in-out;
+}
+
+.driverCard:hover {
+    transform: scale(1.05);
+}
+
+.driverImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.driverInfo {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.driverInfo h3 {
+    color: #FFD700;
+}
+
+.driverInfo p {
+    color: #fff;
+}
+
+.driverCard:not(:hover) .driverInfo {
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.driverCard:hover .driverInfo {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 100;
+}

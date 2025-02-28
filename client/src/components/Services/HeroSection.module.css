@@ -1,0 +1,147 @@
+.heroSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Küçük ekranlarda alt alta dizilmesini sağlar */
+    padding: 3rem 10%;
+    background-color: #222;
+    color: white;
+    gap: 50px;
+}
+
+.heroContent {
+    max-width: 50%;
+}
+
+.heroContent h1 {
+    font-size: 2.2rem; /* Mobilde daha iyi görünmesi için küçültüldü */
+    font-weight: bold;
+    line-height: 140%;
+    text-align: center;
+}
+
+.highlight {
+    color: #000;
+    background-color: #FFCC00;
+    padding: 0 5px;
+}
+
+.heroContent p {
+    font-size: 1.1rem;
+    margin: 15px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.callTaxiButton {
+    background-color: #FFCC00;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 180px; /* Butonları eşit genişlikte yap */
+    text-align: center;
+}
+
+.callTaxiButton:hover {
+    background-color: black;
+    color: #FFCC00;
+}
+
+.heroImage {
+    max-width: 40%;
+    text-align: center;
+}
+
+.heroImage img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 📌 Butonları hizalama */
+.buttonssec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Küçük ekranlarda alt alta sıralanmasını sağlar */
+}
+
+/* 📌 Çizgili ayırıcı */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 2px solid #ccc;
+}
+
+.divider:not(:empty)::before {
+    margin-right: 10px;
+}
+
+.divider:not(:empty)::after {
+    margin-left: 10px;
+}
+
+/* 📌 Mobil için medya sorgusu */
+@media screen and (max-width: 768px) {
+    .heroSection {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 5%;
+    }
+
+    .heroContent {
+        max-width: 100%;
+    }
+
+    .heroContent h1 {
+        font-size: 1.8rem;
+    }
+
+    .heroContent p {
+        font-size: 1rem;
+    }
+
+    .buttonssec {
+        flex-direction: column; /* Mobilde butonları alt alta koy */
+        gap: 1rem;
+    }
+
+    .heroImage {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .heroSection {
+        padding: 1.5rem 3%;
+    }
+
+    .heroContent h1 {
+        font-size: 1.5rem;
+    }
+
+    .heroContent p {
+        font-size: 0.95rem;
+    }
+
+    .callTaxiButton {
+        font-size: 0.9rem;
+        width: 160px;
+    }
+
+    .heroImage {
+        max-width: 90%;
+    }
+}

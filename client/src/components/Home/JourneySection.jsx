@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import classes from "./JourneySection.module.css";
-import journeyImage from "../../assets/journey-image.svg"; // Görsel yolunu kontrol et
+import journeyImage from "../../assets/journey-image.svg"; 
 import LanguageContext from "../../context/LanguageContext";
 
 function JourneySection() {
   const { language } = useContext(LanguageContext);
 
-  // Dil çevirileri
+
   const translations = {
     tr: {
       title: "Birlikte,",
@@ -24,7 +24,7 @@ function JourneySection() {
     },
   };
 
-  const t = translations[language] || translations["tr"]; // Varsayılan TR
+  const t = translations[language] || translations["tr"]; 
 
   return (
     <section className={classes.journeySection}>

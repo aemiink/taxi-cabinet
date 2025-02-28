@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+.addDriverForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+    gap: 20px;
+    font-family: "Exo 2", sans-serif;
+}
+
+.addDriverForm input{
+    width: 75%;
+    height: 1.8rem;
+    font-family: "Exo 2", sans-serif;
+
+}
+
+.addDriverForm button{
+    width: 75%;
+    background-color: #FFCC00; ;
+    color: black;
+    font-weight: 700;
+    font-family: "Exo 2", sans-serif;
+
+}
