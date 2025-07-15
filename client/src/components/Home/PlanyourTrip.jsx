@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import classes from "./PlanYourTrip.module.css";
+import { useContext } from "react";
+import classes from "./PlanyourTrip.module.css";
 import tripImage from "../../assets/trip-image.svg"; 
 import LanguageContext from "../../context/LanguageContext";
 
