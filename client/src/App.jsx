@@ -17,6 +17,7 @@ import Reservation from "./components/Reservation";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const API_BASE = import.meta.env.VITE_API_URL ;
 
   useEffect(() => {
     checkAuth();
@@ -24,7 +25,7 @@ function App() {
 
   const checkAuth = async () => {
     try {
-      const response = await fetch("http://localhost:5000/auth/admin", {
+      const response = await fetch(`${API_BASE}/auth/admin`, {
         method: "GET",
         credentials: "include",
       });

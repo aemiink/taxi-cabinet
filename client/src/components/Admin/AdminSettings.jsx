@@ -5,13 +5,14 @@ function AdminSettings() {
     const [admins, setAdmins] = useState([]);
     const [passwordData, setPasswordData] = useState({ adminId: "", oldPassword: "", newPassword: "" });
     const [newAdmin, setNewAdmin] = useState({ name: "", email: "", password: "" });
+    const API_BASE = import.meta.env.VITE_API_URL ;
 
     useEffect(() => {
         fetchAdmins();
     }, []);
 
     const fetchAdmins = () => {
-        fetch("http://localhost:5000/admin/all-admins")
+        fetch(`${API_BASE}/admin/all-admins`)
             .then(res => res.json())
             .then(data => setAdmins(data))
             .catch(err => console.error("❌ Adminleri çekerken hata:", err));
@@ -19,7 +20,7 @@ function AdminSettings() {
 
     const handlePasswordChange = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/admin/change-password", {
+        const response = await fetch(`${API_BASE}/admin/change-password`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(passwordData),
@@ -30,7 +31,7 @@ function AdminSettings() {
 
     const handleNewAdmin = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/admin/add-admin", {
+        const response = await fetch(`${API_BASE}/admin/add-admin`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newAdmin),
@@ -42,7 +43,7 @@ function AdminSettings() {
 
     const deleteAdmin = async (id) => {
         if (!window.confirm("Emin misiniz?")) return;
-        await fetch(`http://localhost:5000/admin/delete-admin/${id}`, { method: "DELETE" });
+        await fetch(`${API_BASE}/admin/delete-admin/${id}`, { method: "DELETE" });
         fetchAdmins();
     };
 

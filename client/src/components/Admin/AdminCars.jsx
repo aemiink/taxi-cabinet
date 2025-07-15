@@ -6,20 +6,21 @@ function AdminCars() {
     const { language } = useContext(LanguageContext);
     const [cars, setCars] = useState([]);
     const [newCar, setNewCar] = useState({ image: "", name: "", description: "" });
+    const API_BASE = import.meta.env.VITE_API_URL ;
 
     useEffect(() => {
         fetchCars();
     }, []);
 
     const fetchCars = () => {
-        fetch("http://localhost:5000/cars")
+        fetch(`${API_BASE}/cars`)
             .then(res => res.json())
             .then(data => setCars(data))
             .catch(err => console.error("❌ Arabaları çekerken hata:", err));
     };
 
     const deleteCar = (id) => {
-        fetch(`http://localhost:5000/cars/delete/${id}`, {
+        fetch(`${API_BASE}/cars/delete/${id}`, {
             method: "DELETE"
         })
             .then(() => {
@@ -35,7 +36,7 @@ function AdminCars() {
 
     const addCar = (e) => {
         e.preventDefault();
-        fetch("http://localhost:5000/cars/add", {
+        fetch(`${API_BASE}/cars/add`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newCar)

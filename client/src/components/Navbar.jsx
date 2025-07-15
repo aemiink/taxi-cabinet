@@ -15,6 +15,7 @@ function Navbar() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const navigate = useNavigate();
     const location = useLocation(); 
+    const API_BASE = import.meta.env.VITE_API_URL ;
 
     useEffect(() => {
         checkAuth();
@@ -22,7 +23,7 @@ function Navbar() {
 
     const checkAuth = async () => {
         try {
-            const response = await fetch("http://localhost:5000/auth/admin", {
+            const response = await fetch(`${API_BASE}/auth/admin`, {
                 method: "GET",
                 credentials: "include",
             });
@@ -40,7 +41,7 @@ function Navbar() {
 
     const handleLogout = async () => {
         try {
-            await fetch("http://localhost:5000/auth/logout", {
+            await fetch(`${API_BASE}/auth/logout`, {
                 method: "POST",
                 credentials: "include",
             });

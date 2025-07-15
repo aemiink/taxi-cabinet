@@ -7,9 +7,10 @@ function Drivers() {
     const { language } = useContext(LanguageContext);
     const [drivers, setDrivers] = useState([]);
     const [hoveredDriver, setHoveredDriver] = useState(null);
+    const API_BASE = import.meta.env.VITE_API_URL ;
 
     useEffect(() => {
-        fetch("http://localhost:5000/drivers")
+        fetch(`${API_BASE}/drivers`)
             .then(res => res.json())
             .then(data => setDrivers(data))
             .catch(err => console.error("❌ Şoförleri çekerken hata:", err));

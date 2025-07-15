@@ -3,16 +3,17 @@ import classes from "./AdminReservations.module.css";
 
 function AdminReservations() {
     const [reservations, setReservations] = useState([]);
+    const API_BASE = import.meta.env.VITE_API_URL ;
 
     useEffect(() => {
-        fetch("http://localhost:5000/reservations", { credentials: "include" })
+        fetch(`${API_BASE}/reservations/`, { credentials: "include" })
             .then(res => res.json())
             .then(data => setReservations(data))
             .catch(err => console.error("❌ Rezervasyonları çekerken hata:", err));
     }, []);
 
     const deleteReservation = (id) => {
-        fetch(`http://localhost:5000/reservations/${id}`, {
+        fetch(`${API_BASE}/reservations/${id}`, {
             method: "DELETE",
             credentials: "include"
         })

@@ -6,6 +6,7 @@ function AdminLogin({ setIsAuthenticated }) {
   const [credentials, setCredentials] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const API_BASE = import.meta.env.VITE_API_URL ;
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -15,7 +16,7 @@ function AdminLogin({ setIsAuthenticated }) {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/auth/login", {
+      const response = await fetch(`${API_BASE}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(credentials),

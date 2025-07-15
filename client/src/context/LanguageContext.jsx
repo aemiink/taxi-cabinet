@@ -4,9 +4,10 @@ const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState("tr");
+  const API_BASE = import.meta.env.VITE_API_URL ;
 
   useEffect(() => {
-    fetch("http://localhost:5000/language")
+    fetch(`${API_BASE}/language`)
       .then((res) => res.json())
       .then((data) => {
         console.log("Backend'den gelen dil:", data.language);
@@ -17,7 +18,7 @@ export const LanguageProvider = ({ children }) => {
 
   const changeLanguage = (lang) => {
     console.log(`Dil değiştiriliyor: ${lang}`);
-    fetch("http://localhost:5000/language", {
+    fetch(`${API_BASE}/language`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ language: lang }),

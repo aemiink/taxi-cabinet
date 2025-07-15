@@ -7,9 +7,10 @@ function Cars() {
     const { language } = useContext(LanguageContext);
     const [cars, setCars] = useState([]);
     const [selectedCar, setSelectedCar] = useState(null); 
+    const API_BASE = import.meta.env.VITE_API_URL ;
 
     useEffect(() => {
-        fetch("http://localhost:5000/cars")
+        fetch(`${API_BASE}/cars`)
             .then(res => res.json())
             .then(data => setCars(data))
             .catch(err => console.error("❌ Arabaları çekerken hata:", err));

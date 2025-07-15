@@ -9,20 +9,21 @@ function AdminDrivers() {
         experience: "",
         years: ""
     });
+    const API_BASE = import.meta.env.VITE_API_URL ;
 
     useEffect(() => {
         fetchDrivers();
     }, []);
 
     const fetchDrivers = () => {
-        fetch("http://localhost:5000/drivers")
+        fetch(`${API_BASE}/drivers`)
             .then(res => res.json())
             .then(data => setDrivers(data))
             .catch(err => console.error("❌ Sürücüleri çekerken hata:", err));
     };
 
     const deleteDriver = (id) => {
-        fetch(`http://localhost:5000/drivers/delete/${id}`, {
+        fetch(`${API_BASE}/drivers/delete/${id}`, {
             method: "DELETE"
         })
             .then(() => {
@@ -38,7 +39,7 @@ function AdminDrivers() {
 
     const addDriver = (e) => {
         e.preventDefault();
-        fetch("http://localhost:5000/drivers/add", {
+        fetch(`${API_BASE}/drivers/add`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newDriver)
