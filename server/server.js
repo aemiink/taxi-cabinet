@@ -16,7 +16,7 @@ app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:5173",
   "https://taxicabinet.com",
-  "https://your-railway-project.up.railway.app" // railway domainin buraya eklenmeli
+  "https://taxi-cabinet-production.up.railway.app" // railway domainin buraya eklenmeli
 ];
 
 app.use(
