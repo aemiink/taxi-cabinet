@@ -2,8 +2,8 @@
   "name": "personal-portfolio",
   "version": "1.0.0",
   "scripts": {
-    "build": "npm run build:client",
-    "build:client": "cd client && npm ci --legacy-peer-deps && npm run build",
-    "start": "cd server && npm ci --omit=dev --legacy-peer-deps && node server.js"
+    "build": "cd client && npm install && npm run build",
+    "start": "npm run build && cd server && npm install && node server.js"
   }
+
 }
