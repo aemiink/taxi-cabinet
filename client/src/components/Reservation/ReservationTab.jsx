@@ -64,6 +64,7 @@ function ReservationTab() {
   });
 
   const [loading, setLoading] = useState(false);
+  const API_BASE = import.meta.env.VITE_API_URL ;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -83,7 +84,7 @@ function ReservationTab() {
 
     try {
 
-        const reservationResponse = await fetch("http://localhost:5000/reservations", {
+        const reservationResponse = await fetch(`${API_BASE}/reservations`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),
@@ -98,7 +99,7 @@ function ReservationTab() {
         }
 
 
-        const whatsappResponse = await fetch("http://localhost:5000/whatsapp/send-whatsapp-message", { 
+        const whatsappResponse = await fetch(`${API_BASE}/whatsapp/send-whatsapp-message`, { 
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -117,7 +118,7 @@ function ReservationTab() {
 
         const whatsappData = await whatsappResponse.json();
 
-        if (whatsappResponse.ok) {
+        if (whatsappData.ok) {
             alert(t.success);
         } else {
             alert(t.whatsappFail);
