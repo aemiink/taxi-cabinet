@@ -1,10 +1,10 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "npm run build-client && node server.js",
-    "build-client": "cd ../client && npm install && npm run build"
+    "build-client": "cd ../client && npm run build"
   },
   "keywords": [],
   "author": "",
